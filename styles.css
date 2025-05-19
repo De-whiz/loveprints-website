@@ -12,6 +12,8 @@ body {
   overflow-x: hidden;
 }
 
+
+
 nav {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
@@ -65,6 +67,13 @@ header {
   text-align: center;
   padding: 2rem 1rem;
   z-index: 1;
+}
+/* On small screens, limit height so it doesn't stretch too much */
+@media (max-width: 768px) {
+  header {
+    height: 50vh; /* smaller height on tablets and mobiles */
+    background-size: contain; /* switch back to cover on very small screens */
+  }
 }
 
 header::before {
