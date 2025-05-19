@@ -225,12 +225,81 @@ header .cta-buttons a:hover {
   }
 }
 
-/* Responsive Design */
+/* Hide nav-toggle button on desktop */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Hamburger lines */
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  background-color: #e87272;
+  height: 3px;
+  width: 25px;
+  border-radius: 2px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  top: 8px;
+}
+
+/* Mobile Styles */
 @media (max-width: 768px) {
-  nav ul {
+  nav ul.nav-links {
+    position: absolute;
+    top: 60px; /* adjust based on nav height */
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    width: 200px;
     flex-direction: column;
+    padding: 1rem;
     gap: 1rem;
+    border-radius: 0 0 0 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: none;
   }
+
+  nav ul.nav-links.show {
+    display: flex;
+  }
+
+  nav ul.nav-links li {
+    text-align: right;
+  }
+
+  nav ul.nav-links li a {
+    font-size: 1.1rem;
+  }
+
+  nav ul {
+    gap: 0; /* remove desktop gap */
+  }
+
+  /* Show toggle button on mobile */
+  .nav-toggle {
+    display: block;
+  }
+}
+
 
   header h1 {
     font-size: 2rem;
@@ -252,7 +321,7 @@ header .cta-buttons a:hover {
   .gallery {
     grid-template-columns: 1fr 1fr;
   }
-}
+
 
 @media (max-width: 480px) {
   .gallery {
