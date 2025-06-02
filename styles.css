@@ -90,6 +90,12 @@ header .cta-buttons {
   position: relative;
   z-index: 2;
 }
+@media (max-width: 768px) {
+  .cta-buttons {
+    height: 50vh; /* smaller height on tablets and mobiles */
+    background-size: cover; /* switch back to cover on very small screens */
+  }
+}
 
 header h1 {
   font-family: 'Playfair Display', serif;
